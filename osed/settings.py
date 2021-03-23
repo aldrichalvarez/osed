@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'vrc1vd9oc(z=-9@d^db1mw8a_^*l6t58=f+0pnt0ijibc0f7lt'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = '127.0.0.1', 'osed.herokuapp.com'
 
@@ -128,7 +128,7 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATIC_ROOT  =   os.path.join(PROJECT_ROOT, 'staticfiles')
-STATIC_URL = '/static/'
+
 
 # Extra lookup directories for collectstatic to find static files
 STATICFILES_DIRS = (
