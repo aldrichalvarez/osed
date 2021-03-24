@@ -6,13 +6,18 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
-   <title>base</title>
+   <title>base</title>  
 </head>
+<style>
+  body {
+    background-color: #fafafa;
+  }
+</style>
 <body>
-   <nav class="navbar" role="navigation" aria-label="main navigation">
+   <nav class="navbar is-link" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <a class="navbar-item" href="{% url 'app-home' %}">
-          <h1 class="title is-5">Outsmart Ed</h1>
+          <h1 class="title is-5" style="color:white;">📘 Outsmart Ed</h1>
         </a>
     
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -69,7 +74,7 @@
         </div>
       </div>
     </nav>
-    <div class="container is-max-desktop">
+    <div class="container is-max-desktop p-10">
       {% block content %}
       {% endblock %}
     </div>
