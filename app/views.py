@@ -4,7 +4,7 @@ from django.http import HttpResponse
  
 posts = [
    {
-      'image': 'https://wallpaperaccess.com/full/3389575.jpg',
+      'video': 'https://www.youtube.com/embed/5GqgZOaDI0k',
       'author': 'Sean Darrel Hernandez',
       'class': 'Photoshop Master Class',
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',
@@ -12,7 +12,7 @@ posts = [
       'ranking': '1'
    },
    {
-      'image': 'https://wallpaperaccess.com/full/3389575.jpg',
+      'video': 'https://www.youtube.com/embed/5GqgZOaDI0k',
       'author': 'Aldrich Heinz Alvarez',
       'class': 'Full Stack Web Dev using Django',
       'description': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ',

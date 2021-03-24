@@ -7,10 +7,11 @@
          <div class="container">
             <div class="card p-5">
                <div class="card-image">
-                  <figure class="image is-4by3">
-                     <img src={{ post.image }} alt="image">
-                  </figure><br>
+                  <figure class="image is-16by9">
+                     <iframe class="has-ratio" width="640" height="360" src={{ post.video }} frameborder="0" allowfullscreen></iframe>
+                   </figure>
                </div>
+               <br>
                <h1 class="title is-3">{{ post.class }}</h1>
                <span class="tag is-info">👨 {{ post.author }}</span>
                <span class="tag is-success">👍 {{ post.likes }} likes</span>
