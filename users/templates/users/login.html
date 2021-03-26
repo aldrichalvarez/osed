@@ -7,7 +7,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <div class="card p-5 m-5">
-   <h1 class="title"><b>🎉 Join Outsmart Ed now!</b></h1>
+   <h1 class="title"><b>👋 Hello, Welcome back!</b></h1>
    <form method="POST">
       {% csrf_token %}
       <fieldset class="form-group">
@@ -16,10 +16,10 @@
       <div class="field is-grouped">
          <p class="control">
             <button class="button is-primary" type="submit">
-               <b>✍ Sign Up</b>
+               <b>↩️ Log in</b>
             </button>
-            <a class="button is-light is-link" href="{% url 'login' %}">
-              <b>↩️ or Log in your account</b>
+            <a class="button is-light is-link" href="{% url 'register' %}">
+              <b>✍ or Sign Up for an account</b>
             </a>
             <a class="button is-light is-danger" href="{% url 'app-home' %}">
               <b>🏠 Back to Home</b>
@@ -29,12 +29,9 @@
    </form>
 </div>
 </div>
+</div>
+</div>
+</div>
 
 
-          </div>
-        </div>
-      </div>
-    </div>
-</body>
-</html>
 
