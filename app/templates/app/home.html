@@ -2,35 +2,29 @@
 {% block content %}
    {% for post in posts %}
    <br>
-   <div class="columns is-centered">
-       <div class="column is-two-thirds">
-         <div class="container">
-            <div class="card p-5">
-               <div class="card-image">
-                  <figure class="image is-16by9">
-                     <iframe class="has-ratio" width="640" height="360" src={{ post.video }} frameborder="0" allowfullscreen></iframe>
-                   </figure>
-               </div>
-               <br>
-               <h1 class="title is-3">{{ post.class }}</h1>
-               <span class="tag is-light">👨 {{ post.author }}</span>
-               <span class="tag is-light">👍 {{ post.likes }} likes</span>
-               <span class="tag is-light">💯 Top {{ post.ranking }}</span>
-               <br><br>
-                  <div class="content">
-                     <p class="subtitle is-6"><b>What is this all about?</b></p>
-                     <blockquote>{{ post.description }}</blockquote>
-                  </div>
-               <div class="buttons">
-                  <button class="button is-danger"><strong>📅 Book</strong></button>
-                  <button class="button is-danger is-inverted">📖 Know more</button>
-                  <button class="button is-danger is-inverted">💬 Message</button>
-                  <button class="button is-danger is-inverted">🔖 Add to favorites </button>
-                </div>
-            </div>
+      <div class="card p-5">
+         <div class="card-image">
+            <figure class="image is-16by9">
+               <iframe class="has-ratio" width="640" height="360" src={{ post.link }} frameborder="0" allowfullscreen></iframe>
+               </figure>
          </div>
+         <br>
+         <h1 class="title is-3">{{ post.title }}</h1>
+         <span class="tag is-light">👨 {{ post.author }}</span>
+         <span class="tag is-light">👍 {{ post.likes }} likes</span>
+         <span class="tag is-light">💯 Top {{ post.ranking }}</span>
+         <br><br>
+            <div class="content">
+               <p class="subtitle is-6"><b>What is this all about?</b></p>
+               <blockquote>{{ post.description }}</blockquote>
+            </div>
+         <div class="buttons">
+            <button class="button is-danger"><strong>📅 Book</strong></button>
+            <button class="button is-danger is-inverted">📖 Know more</button>
+            <button class="button is-danger is-inverted">💬 Message</button>
+            <button type="submit" name="post_id" value="{{ post.id }}" class="button is-danger is-inverted">👍 Like </button>
+            </div>
       </div>
-   </div>
    <br>
    {% endfor %}
 {% endblock content %}
