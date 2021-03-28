@@ -1,5 +1,56 @@
 {% extends 'app/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 <br>
-   <h1 class="title">{{user.username}}</h1>
+<div class="card">
+   <div class="card-image">
+     <figure class="image is-2by1">
+       <img src="{{ user.profile.cover.url }}" onerror="this.src='https://bulma.io/images/placeholders/640x320.png;'" alt="Placeholder image">
+     </figure>
+   </div>
+   <div class="card-content">
+     <div class="media">
+       <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="{{ user.profile.image.url }}" onerror="this.src='https://bulma.io/images/placeholders/96x96.png';" alt="img">
+        </figure>
+       </div>
+       <div class="media-content">
+         <p class="title is-4">{{ user.username }} 
+          <a class="button is is-light is-small p-1" href="{% url 'update' %}">
+          <span>✍ Update</span>
+          </a>
+      </p>
+         <p class="subtitle is-6">{{ user.email }}</p>
+       </div>
+     </div>
+     <div class="content">
+       <p><i>{{ user.profile.bio }}</i></p>
+     </div>
+     <div class="content">
+      <span class="tag is-light">👨 subscribers</span>
+      <span class="tag is-light">👍 likes</span>
+      <span class="tag is-light">💯 top</span>
+     </div>
+     <div class="tabs is-boxed">
+      <ul>
+        <li class="is-active">
+          <a>
+            <span>Courses</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span>Music</span>
+          </a>
+        </li>
+        <li>
+          <a>
+            <span>Videos</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+   </div>
+ </div>
 {% endblock content %}

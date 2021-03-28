@@ -1,0 +1,187 @@
+{% extends "app/base.html" %}
+{% block content %}
+<br>
+      <div class="card p-5">
+         <div class="card-image">
+            <figure class="image is-16by9">
+               <iframe class="has-ratio" width="640" height="360" src={{ object.link }} frameborder="0" allowfullscreen></iframe>
+               </figure>
+         </div>
+         <br>
+         <h1 class="title is-3">{{ object.title }}</h1>
+         <span class="tag is-light">👍 {{ object.likes }} likes</span>
+         <span class="tag is-light">💯 Top {{ object.ranking }}</span>
+         <span class="tag is-light">🕧 {{ object.date_posted }}</span>
+         <br><br>
+            <div class="content">
+               <p class="subtitle is-6"><b>What you are going to learn?</b></p>
+               <blockquote>{{ object.description }}</blockquote>
+            </div>
+            <nav class="panel">
+               <p class="panel-heading p-3">
+                 Full Course content:
+               </p>
+               <a class="panel-block is-active pl-6">
+                 📖  bulma
+               </a>
+               <a class="panel-block is-active pl-6">
+                  📖  bulma
+                </a>
+                <a class="panel-block is-active pl-6">
+                  📖  bulma
+                </a>
+                <a class="panel-block is-active pl-6">
+                  📖  bulma
+                </a>
+             </nav>
+            <p class="title is-5"><b><i>{{ object.author }}'s</i> Credentials</b></p>
+            <div class="media">
+               <div class="media-left">
+                <figure class="image is-48x48">
+                  <img src="{{ object.author.profile.image.url }}" onerror="this.src='https://bulma.io/images/placeholders/96x96.png';" alt="img">
+                </figure>
+               </div>
+               <div class="media-content">
+                 <p class="title is-4">{{ object.author }}</p>
+                 <p class="subtitle is-6">{{ object.author.email }}</p>
+               </div>
+             </div>
+             <nav class="level is-mobile">
+               <div class="level-item has-text-centered">
+                 <div>
+                   <p class="heading">Views</p>
+                   <p class="title">3,456</p>
+                 </div>
+               </div>
+               <div class="level-item has-text-centered">
+                 <div>
+                   <p class="heading">Subscribers</p>
+                   <p class="title">123</p>
+                 </div>
+               </div>
+               <div class="level-item has-text-centered">
+                 <div>
+                   <p class="heading">Books</p>
+                   <p class="title">456K</p>
+                 </div>
+               </div>
+               <div class="level-item has-text-centered">
+                 <div>
+                   <p class="heading">Likes</p>
+                   <p class="title">789</p>
+                 </div>
+               </div>
+             </nav>
+            
+            <hr>
+            {% if object.author == user %}
+            <div class="buttons">
+              <a href="{% url 'post-update' object.id %}" class=" button is-primary is-outlined">Update this Course</a>
+              <a href="{% url 'post-delete' object.id %}" class=" button is-danger is-outlined">Delete this Course</a>
+            </div>
+            
+            {% else %}
+              {% if user.is_authenticated  %}
+              <div class="buttons">
+                <a href="{% url 'app-home' %}" class="button is-danger"><strong>📅 Book a session</strong></a>
+                <a href="{% url 'app-home' %}" class="button is-danger is-inverted">💳 Buy full course</a>
+                <a href="{% url 'app-home' %}" class="button is-danger is-inverted">📺 Subscribe</a>
+                <a href="{% url 'app-home' %}" class="button is-danger is-inverted">👍 Like</a> 
+              </div>
+              {% else %}
+              <div class="buttons">
+                <a href="{% url 'login' %}"><button class="button is-danger"><strong>📅 Book</strong></button></a>
+                <a href="{% url 'login' %}"><button class="button is-danger is-inverted">💳 Buy full course</button></a>
+                <a href="{% url 'login' %}"><button class="button is-danger is-inverted">📺 Subscribe</button></a>
+                <a href="{% url 'login' %}"><button class="button is-danger is-inverted">👍 Like </button></a> 
+              </div>
+              {% endif %}
+            {% endif %}
+            <p class="title is-5">Comment Section</p>
+            <article class="media">
+               <figure class="media-left">
+                 <p class="image is-64x64">
+                   <img src="https://bulma.io/images/placeholders/128x128.png">
+                 </p>
+               </figure>
+               <div class="media-content">
+                 <div class="content">
+                   <p>
+                     <strong>Barbara Middleton</strong>
+                     <br>
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis porta eros lacus, nec ultricies elit blandit non. Suspendisse pellentesque mauris sit amet dolor blandit rutrum. Nunc in tempus turpis.
+                     <br>
+                     <small><a>Like</a> · <a>Reply</a> · 3 hrs</small>
+                   </p>
+                 </div>
+             
+                 <article class="media">
+                   <figure class="media-left">
+                     <p class="image is-48x48">
+                       <img src="https://bulma.io/images/placeholders/96x96.png">
+                     </p>
+                   </figure>
+                   <div class="media-content">
+                     <div class="content">
+                       <p>
+                         <strong>Sean Brown</strong>
+                         <br>
+                         Donec sollicitudin urna eget eros malesuada sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aliquam blandit nisl a nulla sagittis, a lobortis leo feugiat.
+                         <br>
+                         <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                       </p>
+                     </div>
+             
+                     <article class="media">
+                       Vivamus quis semper metus, non tincidunt dolor. Vivamus in mi eu lorem cursus ullamcorper sit amet nec massa.
+                     </article>
+             
+                     <article class="media">
+                       Morbi vitae diam et purus tincidunt porttitor vel vitae augue. Praesent malesuada metus sed pharetra euismod. Cras tellus odio, tincidunt iaculis diam non, porta aliquet tortor.
+                     </article>
+                   </div>
+                 </article>
+             
+                 <article class="media">
+                   <figure class="media-left">
+                     <p class="image is-48x48">
+                       <img src="https://bulma.io/images/placeholders/96x96.png">
+                     </p>
+                   </figure>
+                   <div class="media-content">
+                     <div class="content">
+                       <p>
+                         <strong>Kayli Eunice </strong>
+                         <br>
+                         Sed convallis scelerisque mauris, non pulvinar nunc mattis vel. Maecenas varius felis sit amet magna vestibulum euismod malesuada cursus libero. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Phasellus lacinia non nisl id feugiat.
+                         <br>
+                         <small><a>Like</a> · <a>Reply</a> · 2 hrs</small>
+                       </p>
+                     </div>
+                   </div>
+                 </article>
+               </div>
+             </article>
+             
+             <article class="media">
+               <figure class="media-left">
+                 <p class="image is-64x64">
+                   <img src="https://bulma.io/images/placeholders/128x128.png">
+                 </p>
+               </figure>
+               <div class="media-content">
+                 <div class="field">
+                   <p class="control">
+                     <textarea class="textarea" placeholder="Add a comment..."></textarea>
+                   </p>
+                 </div>
+                 <div class="field">
+                   <p class="control">
+                     <button class="button">Post comment</button>
+                   </p>
+                 </div>
+               </div>
+             </article>
+      </div>
+   <br>
+{% endblock content %}

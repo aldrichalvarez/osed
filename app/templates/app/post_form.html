@@ -1,0 +1,40 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<style>
+  body {
+    background-color: #fafafa;
+  }
+</style>
+<div class="container is-max-desktop p-10">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div class="card p-5 m-5">
+   <h1 class="title"><b>🎊 Create your course!</b></h1>
+
+   <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+         {{ form|crispy }}
+      </fieldset>
+      <div class="field is-grouped">
+         <p class="control">
+            <button class="button is-primary" type="submit">
+               <b>✍ Create Course </b>
+            </button>
+            <a class="button is-light is-danger" href="{% url 'app-home' %}" style="text-decoration: none;">
+              <b>❌ Cancel</b>
+            </a>
+         </p>
+         </div>
+   </form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+

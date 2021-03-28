@@ -3,6 +3,18 @@
    {% for post in posts %}
    <br>
       <div class="card p-5">
+         <div class="media">
+            <div class="media-left">
+             <figure class="image is-48x48">
+               <img src="{{ post.author.profile.image.url }}" onerror="this.src='https://bulma.io/images/placeholders/96x96.png';" alt="img">
+             </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">{{ post.author }} 
+           </p>
+              <p class="subtitle is-6">{{ post.author.email }}</p>
+            </div>
+          </div>
          <div class="card-image">
             <figure class="image is-16by9">
                <iframe class="has-ratio" width="640" height="360" src={{ post.link }} frameborder="0" allowfullscreen></iframe>
@@ -10,20 +22,27 @@
          </div>
          <br>
          <h1 class="title is-3">{{ post.title }}</h1>
-         <span class="tag is-light">👨 {{ post.author }}</span>
          <span class="tag is-light">👍 {{ post.likes }} likes</span>
          <span class="tag is-light">💯 Top {{ post.ranking }}</span>
+         <span class="tag is-light">🕧 {{ post.date_posted }}</span>
          <br><br>
             <div class="content">
-               <p class="subtitle is-6"><b>What is this all about?</b></p>
+               <p class="subtitle is-6"><b>What is this course all about?</b></p>
                <blockquote>{{ post.description }}</blockquote>
             </div>
-         <div class="buttons">
-            <button class="button is-danger"><strong>📅 Book</strong></button>
-            <button class="button is-danger is-inverted">📖 Know more</button>
-            <button class="button is-danger is-inverted">💬 Message</button>
-            <button type="submit" name="post_id" value="{{ post.id }}" class="button is-danger is-inverted">👍 Like </button>
+            {% if user.is_authenticated  %}
+            <div class="buttons">
+               <a href="{% url 'app-home' %}" class="button is-danger"><strong>📅 Book a session</strong></a>
+               <a href="{% url 'post-detail' post.id %}" class="button is-danger is-outlined">📖 Know more</a>
+               <a href="{% url 'app-home' %}" class="button is-danger is-outlined">✨ Favorites</a> 
             </div>
+            {% else %}
+            <div class="buttons">
+               <a href="{% url 'login' %}" class="button is-danger"><strong>📅 Book a session</strong></a>
+               <a href="{% url 'login' %}" class="button is-danger is-inverted">📖 Know more</a>
+               <a href="{% url 'login' %}" class="button is-danger is-inverted">👍 Like</a> 
+            </div>
+            {% endif %}
       </div>
    <br>
    {% endfor %}

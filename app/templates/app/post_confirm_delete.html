@@ -1,0 +1,22 @@
+{% extends "app/base.html" %}
+{% block content %}
+
+<h1 class="title"><b>🚧 Are you sure you want to delete "{{ object.title }}"</b></h1>
+   <form method="POST">
+      {% csrf_token %}
+      <fieldset class="form-group">
+         {{ form|crispy }}
+      </fieldset>
+      <div class="field is-grouped">
+         <p class="control">
+            <button class="button is-danger" type="submit">
+               <b>👍 Yes, delete </b>
+            </button>
+            <a class="button is-light is-light" href="{% url 'post-detail' object.id %}" style="text-decoration: none;">
+              <b>❌ Cancel</b>
+            </a>
+         </p>
+         </div>
+   </form>
+
+{% endblock content %}
