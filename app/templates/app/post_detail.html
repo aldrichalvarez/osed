@@ -97,6 +97,8 @@
               </div>
               {% endif %}
             {% endif %}
+
+            {% if object.author == user %}
             <p class="title is-5">Comment Section</p>
             <article class="media">
                <figure class="media-left">
@@ -184,4 +186,5 @@
              </article>
       </div>
    <br>
+   {% endif %}
 {% endblock content %}
