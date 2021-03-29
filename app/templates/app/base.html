@@ -74,7 +74,7 @@
           <div class="navbar-item">
             <div class="buttons">
               {% if user.is_authenticated  %}
-                {% if user.status == 'Instructor'%}
+                {% if user.profile.status == 'Instructor'%}
                   <a class="button is-primary" href="{% url 'post-create' %}">
                     <b>✍ Create Post </b>
                   </a>
