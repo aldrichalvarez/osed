@@ -74,9 +74,11 @@
           <div class="navbar-item">
             <div class="buttons">
               {% if user.is_authenticated  %}
-              <a class="button is-primary" href="{% url 'post-create' %}">
-                <b>✍ Create Post </b>
-              </a>
+                {% if user.status == 'Instructor'%}
+                  <a class="button is-primary" href="{% url 'post-create' %}">
+                    <b>✍ Create Post </b>
+                  </a>
+                {% endif %}
               <a class="button is-light" href="{% url 'profile' %}">
                 <b>👱 {{ user.username }}</b>
               </a>
