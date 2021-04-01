@@ -104,10 +104,6 @@
           <div class="container">
             {% if messages %}
             {% for message in messages %}
-            <br>
-            <div class="notification is-{{ message.tags }} is-light">
-                {{ message }}
-            </div>
             {% endfor %}
             {% endif %}
             {% block content %}
