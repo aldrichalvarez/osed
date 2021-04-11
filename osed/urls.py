@@ -28,6 +28,7 @@ urlpatterns = [
     path('profile/', user_views.profile, name="profile"),
     path('update/', user_views.update, name="update"),
     path('admin/', admin.site.urls),
+    path('accounts/', include('allauth.urls')),
 ]
 
 if settings.DEBUG:

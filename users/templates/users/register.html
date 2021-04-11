@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 {% load crispy_forms_tags %}
 <style>
   body {
@@ -26,6 +27,9 @@
             <a class="button is-light is-link" href="{% url 'login' %}" style="text-decoration: none;">
               <b>↩️ or Log in your account</b>
             </a>
+            <a class="button is-light is-warning" href="{% provider_login_url 'google' %}">
+              <b>G | Sign up with Google</b>
+           </a>
             <a class="button is-light is-danger" href="{% url 'app-home' %}" style="text-decoration: none;">
               <b>🏠 Back to Home</b>
             </a>
