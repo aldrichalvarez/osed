@@ -10,14 +10,14 @@
              </figure>
             </div>
             <div class="media-content">
-               <a href="{% url 'profile' post.author.id %}"><p class="title is-4">{{ post.author }}
+               <a href="{% url 'profile' post.author.profile.id %}"><p class="title is-4">{{ post.author }}
            </p>
               <p class="subtitle is-6">{{ post.author.email }}</p>
             </div></a>
           </div>
          <div class="card-image">
             <figure class="image is-16by9">
-               <iframe class="has-ratio" width="640" height="360" src={{ post.link }} frameborder="0" allowfullscreen></iframe>
+               <iframe class="has-ratio" width="640" height="360" src="https://www.youtube.com/embed/{{ post.preview_youtube_link }}" frameborder="0" allowfullscreen></iframe>
                </figure>
          </div>
          <br>

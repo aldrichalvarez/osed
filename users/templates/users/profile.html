@@ -5,34 +5,36 @@
 <div class="card">
    <div class="card-image">
      <figure class="image is-2by1">
-       <img src="{{ user.profile.cover.url }}" onerror="this.src='https://bulma.io/images/placeholders/640x320.png';" alt="Placeholder image">
+       <img src="{{ page_user.user.profile.cover.url }}" onerror="this.src='https://bulma.io/images/placeholders/640x320.png';" alt="Placeholder image">
      </figure>
    </div>
    <div class="card-content">
      <div class="media">
        <div class="media-left">
         <figure class="image is-48x48">
-          <img src="{{ user.profile.image.url }}" onerror="this.src='https://bulma.io/images/placeholders/96x96.png';" alt="img">
+          <img src="{{ page_user.user.profile.image.url }}" onerror="this.src='https://bulma.io/images/placeholders/96x96.png';" alt="img">
         </figure>
        </div>
        <div class="media-content">
-         <p class="title is-4">{{ user.username }} 
+         <p class="title is-4">{{ page_user.user.username }} 
+          {% if page_user.user.profile.user == user %}
           <a class="button is is-light is-small p-1" href="{% url 'update' %}">
           <span>✍ Update</span>
           </a>
+          {% endif %}
       </p>
-         <p class="subtitle is-6">{{ user.email }}</p>
+         <p class="subtitle is-6">{{ page_user.user.email }}</p>
        </div>
      </div>
      <div class="content">
-       <p class="content p-4"><b>{{ user.profile.bio }} 👨</b><br>
-       {{ user.profile.address }} 🏠 <br>
-       {{ user.profile.topics }} 📎 <br>
-       {{ user.profile.education }} 📚 <br>
-       {{ user.profile.background }} 💻 </p>
+       <p class="content p-4"><b>{{ page_user.user.profile.bio }} 👨</b><br>
+       {{ page_user.user.profile.address }} 🏠 <br>
+       {{ page_user.user.profile.topics }} 📎 <br>
+       {{ page_user.user.profile.education }} 📚 <br>
+       {{ page_user.user.profile.background }} 💻 </p>
      </div>
-     {% if user.profile.status == 'I' %}
-     {% if user.profile.user == user %}
+     {% if page_user.user.profile.status == 'I' %}
+     {% if page_user.user.profile.user == user %}
      <div class="box">
       <h1 class="subtitle"><b>Your Notifications</b></h1>
       <div class="container">
@@ -45,26 +47,26 @@
        </div>
      </div>
      {% endif %}
-     {% if user.profile.calendar != 'Paste here your Google Calendar shareable link..' %}
+     {% if page_user.user.profile.calendar != 'Paste here your Google Calendar shareable link..' %}
      <div class="container">
-      <h1 class="subtitle">{{ user.username }}'s Calendar</h1>
-      <iframe src="{{ user.profile.calendar }}" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+      <h1 class="subtitle">{{ page_user.user.username }}'s Calendar</h1>
+      <iframe src="{{ page_user.user.profile.calendar }}" style="border: 0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
      </div>
      {% else %}
      <div class="container">
-      <h1 class="subtitle">{{ user.username }}'s Calendar</h1>
-      <p class="content"><i>{{ user.username }} has no calendar yet</i></p>
+      <h1 class="subtitle">{{ page_user.user.username }}'s Calendar</h1>
+      <p class="content"><i>{{ page_user.user.username }} has no calendar yet</i></p>
      </div>
      <hr>
      {% endif %}
      <div class="container">
-      <h1 class="subtitle">{{ user.username }}'s Courses</h1>
-      <p class="content"><i>{{ user.username }} has no courses yet</i></p>
+      <h1 class="subtitle">{{ page_user.user.username }}'s Courses</h1>
+      <p class="content"><i>{{ page_user.user.username }} has no courses yet</i></p>
      </div>
      <hr>
      <div class="container">
       <h1 class="subtitle">Teaching History</h1>
-      <p class="content"><i>{{ user.username }} has no courses yet</i></p>
+      <p class="content"><i>{{ page_user.user.username }} has no courses yet</i></p>
      </div>
      <hr>
    </div>
@@ -72,7 +74,7 @@
    <hr>
      <div class="container">
       <h1 class="subtitle">Class History</h1>
-      <p class="content"><i>{{ user.username }} has no courses yet</i></p>
+      <p class="content"><i>{{ page_user.user.username }} has no courses yet</i></p>
      </div>
    {% endif %}
  </div>

@@ -12,18 +12,12 @@ class Profile(models.Model):
       (INSTRUCTOR, 'Instructor'),
       (NOT, 'Not'),
    ]
-   status = models.CharField(
-      max_length=1,
-      choices=PRIVILEGES_CHOICES,
-      default=NOT,
-   )
-   user = models.OneToOneField(User, on_delete=models.CASCADE)
    calendar = models.URLField(max_length=128, default='Paste here your Google Calendar shareable link..', blank=True)
-   bio = models.CharField(max_length=500, default='Update your profile to add more details about yourself', blank=True)
-   address = models.CharField(max_length=500, default='Where are you currently based..', blank=True)
-   topics = models.CharField(max_length=500, default='What are the topics you like to talk about..', blank=True)
-   education = models.CharField(max_length=500, default='What is your educational background..', blank=True)
-   background = models.CharField(max_length=500, default='What is your professional background..', blank=True)
+   bio = models.CharField(max_length=500, default='More details about me..', blank=True)
+   address = models.CharField(max_length=500, default='Where am I currently based..', blank=True)
+   topics = models.CharField(max_length=500, default='What are the topics I like to talk about..', blank=True)
+   education = models.CharField(max_length=500, default='What is my educational background..', blank=True)
+   background = models.CharField(max_length=500, default='What is my professional background..', blank=True)
    image = models.ImageField(default='default_profile.jpg', upload_to='profile_pics')
    cover = models.ImageField(default='default_cover.png', upload_to='cover_pics')
 
