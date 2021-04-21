@@ -1,7 +1,11 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.views.generic import DetailView
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, CreateBioForm
+from users.models import Profile
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
 
 def register(request):
    if request.method == 'POST':
@@ -15,10 +19,20 @@ def register(request):
       form = UserRegisterForm()
    return render(request, 'users/register.html', {'form': form})
 
-@login_required
-def profile(request):
-   return render(request, 'users/profile.html')
 
+@method_decorator(login_required, name='dispatch')
+class profile(DetailView):
+   model = Profile
+   template_name = 'users/profile.html'
+
+   def get_context_data(self, *args, **kwargs):
+      users = Profile.objects.all()
+      context = super(profile, self).get_context_data(*args, **kwargs)
+      page_user = get_object_or_404(Profile, id=self.kwargs['pk'])
+      context["page_user"] = page_user
+      return context
+      
+@login_required
 def update(request):
    if request.method == 'POST':
       u_form = UserUpdateForm(request.POST, instance=request.user)

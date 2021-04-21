@@ -10,10 +10,10 @@
              </figure>
             </div>
             <div class="media-content">
-              <p class="title is-4">{{ post.author }} 
+               <a href="{% url 'profile' post.author.id %}"><p class="title is-4">{{ post.author }}
            </p>
               <p class="subtitle is-6">{{ post.author.email }}</p>
-            </div>
+            </div></a>
           </div>
          <div class="card-image">
             <figure class="image is-16by9">
@@ -22,8 +22,6 @@
          </div>
          <br>
          <h1 class="title is-3">{{ post.title }}</h1>
-         <span class="tag is-light">👍 {{ post.likes }} likes</span>
-         <span class="tag is-light">💯 Top {{ post.ranking }}</span>
          <span class="tag is-light">🕧 {{ post.date_posted }}</span>
          <br><br>
             <div class="content">
@@ -32,15 +30,13 @@
             </div>
             {% if user.is_authenticated  %}
             <div class="buttons">
-               <a href="{% url 'app-home' %}" class="button is-danger"><strong>📅 Book a session</strong></a>
+               <a class="button is-danger" href="{% url 'app-home' %}"><strong>📅 Book a session</strong></a>
                <a href="{% url 'post-detail' post.id %}" class="button is-danger is-outlined">📖 Know more</a>
-               <a href="{% url 'app-home' %}" class="button is-danger is-outlined">✨ Favorites</a> 
             </div>
             {% else %}
             <div class="buttons">
                <a href="{% url 'login' %}" class="button is-danger"><strong>📅 Book a session</strong></a>
                <a href="{% url 'login' %}" class="button is-danger is-inverted">📖 Know more</a>
-               <a href="{% url 'login' %}" class="button is-danger is-inverted">👍 Like</a> 
             </div>
             {% endif %}
       </div>

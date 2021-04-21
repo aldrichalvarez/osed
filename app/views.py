@@ -4,10 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, UpdateView, D
 from .models import Post
 
 def home(request):
-   context = {
-      'posts': Post.objects.all()
-   }
-   return render(request, 'app/home.html', context)
+   return render(request, 'app/home.html')
 
 class PostListView(ListView):
    model = Post
@@ -18,9 +15,10 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
    model = Post
 
+
 class PostCreateView(LoginRequiredMixin, CreateView):
    model = Post
-   fields = ['title', 'description', 'link']
+   fields = ['title', 'description', 'link', 'meeting_link']
 
    def form_valid(self, form):
       form.instance.author = self.request.user

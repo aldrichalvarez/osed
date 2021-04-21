@@ -44,30 +44,8 @@
           </a>
     
           <a class="navbar-item" href="{% url 'app-about' %}">
-            <b>What is Outsmart Ed? </b>
+            <b>🎓 What is Outsmart Ed? </b>
           </a>
-    
-          <div class="navbar-item has-dropdown is-hoverable">
-            <a class="navbar-link">
-              <b>➕ More</b>
-            </a>
-    
-            <div class="navbar-dropdown">
-              <a class="navbar-item">
-                🔧 How it Works
-              </a>
-              <a class="navbar-item">
-                💼 Jobs
-              </a>
-              <a class="navbar-item">
-                📤 Contact
-              </a>
-              <hr class="navbar-divider">
-              <a class="navbar-item">
-                🔴 Report an issue
-              </a>
-            </div>
-          </div>
         </div>
     
         <div class="navbar-end">
@@ -79,7 +57,7 @@
                     <b>✍ Create Post </b>
                   </a>
                 {% endif %}
-              <a class="button is-light" href="{% url 'profile' %}">
+              <a class="button is-light" href="{% url 'profile' user.id %}">
                 <b>👱 {{ user.username }}</b>
               </a>
               <a class="button is-light" href="{% url 'logout' %}">
@@ -112,5 +90,6 @@
         </div>
       </div>
     </div>
+
 </body>
 </html>

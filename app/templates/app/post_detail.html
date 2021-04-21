@@ -9,43 +9,34 @@
          </div>
          <br>
          <h1 class="title is-3">{{ object.title }}</h1>
-         <span class="tag is-light">👍 {{ object.likes }} likes</span>
-         <span class="tag is-light">💯 Top {{ object.ranking }}</span>
          <span class="tag is-light">🕧 {{ object.date_posted }}</span>
          <br><br>
             <div class="content">
                <p class="subtitle is-6"><b>What you are going to learn?</b></p>
                <blockquote>{{ object.description }}</blockquote>
             </div>
-            <nav class="panel">
-               <p class="panel-heading p-3">
-                 Full Course content:
-               </p>
-               <a class="panel-block is-active pl-6">
-                 📖  bulma
-               </a>
-               <a class="panel-block is-active pl-6">
-                  📖  bulma
-                </a>
-                <a class="panel-block is-active pl-6">
-                  📖  bulma
-                </a>
-                <a class="panel-block is-active pl-6">
-                  📖  bulma
-                </a>
-             </nav>
-            <p class="title is-5"><b><i>{{ object.author }}'s</i> Credentials</b></p>
-            <div class="media">
-               <div class="media-left">
-                <figure class="image is-48x48">
-                  <img src="{{ object.author.profile.image.url }}" alt="img">
-                </figure>
+            <div class="box">
+              <p class="title is-5"><b><i>{{ object.author }}'s</i> Credentials</b></p>
+              <div class="media">
+                 <div class="media-left">
+                  <figure class="image is-48x48">
+                    <img src="{{ object.author.profile.image.url }}" alt="img">
+                  </figure>
+                 </div>
+                 
+                 <div class="media-content">
+                   <p class="title is-4">{{ object.author }}</p>
+                   <p class="subtitle is-6">{{ object.author.email }}</p>
+                 </div>
                </div>
-               <div class="media-content">
-                 <p class="title is-4">{{ object.author }}</p>
-                 <p class="subtitle is-6">{{ object.author.email }}</p>
-               </div>
-             </div>
+               <div class="content">
+                <p class="content"><b>{{ object.author.profile.bio }} 👨</b><br>
+                {{ object.author.profile.address }} 🏠 <br>
+                {{ object.author.profile.topics }} 📎 <br>
+                {{ object.author.profile.education }} 📚 <br>
+                {{ object.author.profile.background }} 💻 </p>
+              </div>
+            </div>
              <nav class="level is-mobile">
                <div class="level-item has-text-centered">
                  <div>
@@ -86,14 +77,12 @@
                 <a href="{% url 'app-home' %}" class="button is-danger"><strong>📅 Book a session</strong></a>
                 <a href="{% url 'app-home' %}" class="button is-danger is-inverted">💳 Buy full course</a>
                 <a href="{% url 'app-home' %}" class="button is-danger is-inverted">📺 Subscribe</a>
-                <a href="{% url 'app-home' %}" class="button is-danger is-inverted">👍 Like</a> 
               </div>
               {% else %}
               <div class="buttons">
                 <a href="{% url 'login' %}"><button class="button is-danger"><strong>📅 Book</strong></button></a>
                 <a href="{% url 'login' %}"><button class="button is-danger is-inverted">💳 Buy full course</button></a>
                 <a href="{% url 'login' %}"><button class="button is-danger is-inverted">📺 Subscribe</button></a>
-                <a href="{% url 'login' %}"><button class="button is-danger is-inverted">👍 Like </button></a> 
               </div>
               {% endif %}
             {% endif %}
