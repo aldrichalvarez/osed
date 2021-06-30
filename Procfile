@@ -1,1 +1,1 @@
-web: gunicorn osed.wsgi --log-file -
+web: gunicorn knowledgepantry.wsgi --log-file -
