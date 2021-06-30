@@ -46,8 +46,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-    'tailwind',
-    'landingpage',
+    'social_django',
 ]
 
 MIDDLEWARE = [
@@ -153,10 +152,12 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 LOGIN_REDIRECT_URL = 'app-home'
 LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+
 
 AUTHENTICATION_BACKENDS = [
+    'social_core.backends.facebook.FacebookOAuth2',
     'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
 
@@ -170,3 +171,7 @@ INTERNAL_IPS = [
 ]
 
 NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
+
+
+SOCIAL_AUTH_FACEBOOK_KEY = '525199772239418'        # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '27abd237becb560be0c8a03de480ad86' 

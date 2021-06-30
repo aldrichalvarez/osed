@@ -19,7 +19,7 @@ from users import views as user_views
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from landingpage.views import about
+
 
 urlpatterns = [
     path('', include('app.urls')),
@@ -29,8 +29,8 @@ urlpatterns = [
     path('profile/<int:pk>/', user_views.profile.as_view(), name="profile"),
     path('update/', user_views.update, name="update"),
     path('admin/', admin.site.urls),
+    path('social-auth/', include('social_django.urls', namespace="social")),
     path('accounts/', include('allauth.urls')),
-    path('osed/', about, name="osed"),
 ]
 
 if settings.DEBUG:

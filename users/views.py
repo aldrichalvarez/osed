@@ -7,6 +7,9 @@ from users.models import Profile
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
+def privacy(request):
+   return render(request, 'users/privacy.html')
+
 def register(request):
    if request.method == 'POST':
       form = UserRegisterForm(request.POST)
